@@ -17,7 +17,7 @@ def atlag_szamitas(szam_lista):
 print('Adatok letöltése...')
 mappa = kagglehub.dataset_download('srisyra02/zomato-market-analysis')
 
-# Megkeressük a .csv végű fájlt (3. fejezet: endswith metódus)[cite: 135]
+# Megkeressük a .csv végű fájlt (3. fejezet: endswith metódus)
 csv_fajl = ''
 for fajl in os.listdir(mappa):
     if fajl.endswith('.csv'):
@@ -52,21 +52,21 @@ atlag_van_szallitas = []
 atlag_nincs_szallitas = []
 
 for kat in kategoriak:
-    # Listaértelmezés szűréssel és zip-pel (5. és 6. fejezet)[cite: 48, 49, 213]
+    # Listaértelmezés szűréssel és zip-pel (5. és 6. fejezet)
     ertek_igen = [ert for ar, szall, ert in zip(arak, szallitasok, ertekelesek)
                   if ar == kat and szall == 'Yes' and ert > 0]
     
     ertek_nem = [ert for ar, szall, ert in zip(arak, szallitasok, ertekelesek)
                  if ar == kat and szall == 'No' and ert > 0]
 
-    # Saját függvény hívása (7. fejezet)[cite: 228]
+    # Saját függvény hívása (7. fejezet)
     atlag_i = atlag_szamitas(ertek_igen)
     atlag_n = atlag_szamitas(ertek_nem)
 
     atlag_van_szallitas.append(atlag_i)
     atlag_nincs_szallitas.append(atlag_n)
 
-    # Formázott kiírás f-stringgel (2. és 3. fejezet)[cite: 111, 181]
+    # Formázott kiírás f-stringgel (2. és 3. fejezet)
     print(f'{kat}. árkategória -> Kiszállítással: {atlag_i:.2f} '
           f'({len(ertek_igen)} db), Nélküle: {atlag_n:.2f} ({len(ertek_nem)} db)')
 
@@ -83,7 +83,7 @@ print('\n 2. KÉRDÉS EREDMÉNYEI ')
 gyakorisag = {}
 for konyha, ert in zip(konyhak, ertekelesek):
     if ert > 0 and type(konyha) == str:
-        # A vesszővel elválasztott konyhákból az elsőt vesszük (3. fejezet: split, strip)[cite: 134, 135]
+        # A vesszővel elválasztott konyhákból az elsőt vesszük (3. fejezet: split, strip)
         fo_konyha = konyha.split(',')[0].strip()
         gyakorisag[fo_konyha] = gyakorisag.get(fo_konyha, 0) + 1
 
@@ -156,7 +156,7 @@ print(f'Két főre jutó költségek mediánja (NumPy): {np.median(koltseg_tomb)
 
 plt.figure(figsize=(12, 5))
 
-# 1. Grafikon: Vonaldiagram az 1. összetett kérdéshez
+# 1. Grafikon: Vonaldiagram az 1. kérdéshez
 plt.subplot(1, 2, 1)
 plt.plot(kategoriak, atlag_van_szallitas, marker='o', label='Van online szállítás')
 plt.plot(kategoriak, atlag_nincs_szallitas, marker='s', label='Nincs online szállítás')
@@ -167,7 +167,7 @@ plt.xticks(kategoriak)
 plt.legend()
 plt.grid(True)
 
-# 2. Grafikon: Oszlopdiagram a 2. összetett kérdéshez
+# 2. Grafikon: Oszlopdiagram a 2. kérdéshez
 plt.subplot(1, 2, 2)
 plt.bar(top5_nevek, top5_darabok)
 plt.title('Top 5 leggyakoribb fő konyhatípus')
