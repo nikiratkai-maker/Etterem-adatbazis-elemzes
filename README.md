@@ -1,4 +1,6 @@
-# Etterem-adatbazis-elemzes
+# Étterem-adatbázis-elemzés
+
+#Felhasznált adatbázis:https://www.kaggle.com/datasets/srisyra02/zomato-market-analysis
 
 # 1. KÉRDÉS:
 # Hogyan változik az éttermek átlagos értékelése az árkategóriák (1-4) szerint,
